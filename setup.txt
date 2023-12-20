@@ -27,7 +27,6 @@ sh.addShard("shard2rs/shard2a:27018,shard2b:27018,shard2c:27018")
 sh.addShard("shard3rs/shard3a:27018,shard3b:27018,shard3c:27018")
 sh.addShard("shard4rs/shard4a:27018,shard4b:27018,shard4c:27018")
 
-// do not need to ? // docker cp database.csv be91352f814c:/database.csv
 // task 2
 cd C:\Program Files\MongoDB\Tools\100\bin
 mongoimport --uri="mongodb://localhost:27017" --type csv --headerline --db londondb --collection postcodes --file C:\\Users\\yevhe\\Desktop\\University\\postgraduate\\HL\\lab3\\database.csv

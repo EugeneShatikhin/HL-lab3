@@ -11,7 +11,7 @@ const client = new MongoClient(uri);
 const dbWriteMode = true;
 const debug = false;
 
-const documentsToCreate = 200000;
+const documentsToCreate = 100000;
 const batchSize = 1000;
 
 const drivers = 2000;
@@ -24,7 +24,7 @@ const taxiAvgSpeed = 30;
 const minDistance = 0.5;
 
 const meanHour = 18;
-const stdDevHour = 6;
+const stdDevHour = 5;
 
 function generateRandomDateTime(meanHour, stdDevHour) {
   const randomHour = generateNormalDistribution(meanHour % 24, stdDevHour) % 24;
@@ -119,6 +119,8 @@ async function main() {
             Feedback: passengerFeedback,
           },
           Departure: {
+            Postcode: startPoint.Postcode,
+            District: startPoint.District,
             Location: {
               type: "Point",
               coordinates: [startPoint.Longitude, startPoint.Latitude],
@@ -126,6 +128,8 @@ async function main() {
             Timestamp: route[0].DateTime,
           },
           Destination: {
+            Postcode: endPoint.Postcode,
+            District: endPoint.District,
             Location: {
               type: "Point",
               coordinates: [endPoint.Longitude, endPoint.Latitude],
